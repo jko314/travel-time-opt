@@ -1,0 +1,191 @@
+[
+  {
+    "Model Name": "Low Utilization",
+    "Index": 1,
+    "ID": "Low Utilization:1",
+    "From FST Hours": 0,
+    "To FST Hours": 1040,
+    "B": 1,
+    "M": 0.000961538
+  },
+  {
+    "Model Name": "Low Utilization",
+    "Index": 2,
+    "ID": "Low Utilization:2",
+    "From FST Hours": 1040,
+    "To FST Hours": 2288,
+    "B": 1.166666667,
+    "M": 0.000801282
+  },
+  {
+    "Model Name": "Low Utilization",
+    "Index": 3,
+    "ID": "Low Utilization:3",
+    "From FST Hours": 2288,
+    "To FST Hours": 4056,
+    "B": 1.705882353,
+    "M": 0.000565611
+  },
+  {
+    "Model Name": "Low Utilization",
+    "Index": 4,
+    "ID": "Low Utilization:4",
+    "From FST Hours": 4056,
+    "To FST Hours": 9360,
+    "B": 1.705882353,
+    "M": 0.000565611
+  },
+  {
+    "Model Name": "Low Utilization",
+    "Index": 5,
+    "ID": "Low Utilization:5",
+    "From FST Hours": 9360,
+    "To FST Hours": 1000000,
+    "B": 1.375,
+    "M": 0.000600962
+  },
+  {
+    "Model Name": "Med Utilization",
+    "Index": 1,
+    "ID": "Med Utilization:1",
+    "From FST Hours": 0,
+    "To FST Hours": 1248,
+    "B": 1,
+    "M": 0.000801282
+  },
+  {
+    "Model Name": "Med Utilization",
+    "Index": 2,
+    "ID": "Med Utilization:2",
+    "From FST Hours": 1248,
+    "To FST Hours": 2704,
+    "B": 1.142857143,
+    "M": 0.000686813
+  },
+  {
+    "Model Name": "Med Utilization",
+    "Index": 3,
+    "ID": "Med Utilization:3",
+    "From FST Hours": 2704,
+    "To FST Hours": 4368,
+    "B": 1.375,
+    "M": 0.000600962
+  },
+  {
+    "Model Name": "Med Utilization",
+    "Index": 4,
+    "ID": "Med Utilization:4",
+    "From FST Hours": 4368,
+    "To FST Hours": 9734.4,
+    "B": 1.558139535,
+    "M": 0.000559034
+  },
+  {
+    "Model Name": "Med Utilization",
+    "Index": 5,
+    "ID": "Med Utilization:5",
+    "From FST Hours": 9734.4,
+    "To FST Hours": 1000000,
+    "B": 1.292682927,
+    "M": 0.000586304
+  },
+  {
+    "Model Name": "High Utilization",
+    "Index": 1,
+    "ID": "High Utilization:1",
+    "From FST Hours": 0,
+    "To FST Hours": 1289.6,
+    "B": 1,
+    "M": 0.000775434
+  },
+  {
+    "Model Name": "High Utilization",
+    "Index": 2,
+    "ID": "High Utilization:2",
+    "From FST Hours": 1289.6,
+    "To FST Hours": 2787.2,
+    "B": 1.138888889,
+    "M": 0.000667735
+  },
+  {
+    "Model Name": "High Utilization",
+    "Index": 3,
+    "ID": "High Utilization:3",
+    "From FST Hours": 2787.2,
+    "To FST Hours": 4617.6,
+    "B": 1.477272727,
+    "M": 0.000546329
+  },
+  {
+    "Model Name": "High Utilization",
+    "Index": 4,
+    "ID": "High Utilization:4",
+    "From FST Hours": 4617.6,
+    "To FST Hours": 9859.2,
+    "B": 1.357142857,
+    "M": 0.000572344
+  },
+  {
+    "Model Name": "High Utilization",
+    "Index": 5,
+    "ID": "High Utilization:5",
+    "From FST Hours": 9859.2,
+    "To FST Hours": 1000000,
+    "B": 1.423529412,
+    "M": 0.000565611
+  },
+  {
+    "Model Name": "Very High Utilization",
+    "Index": 1,
+    "ID": "Very High Utilization:1",
+    "From FST Hours": 0,
+    "To FST Hours": 1456,
+    "B": 1,
+    "M": 0.000686813
+  },
+  {
+    "Model Name": "Very High Utilization",
+    "Index": 2,
+    "ID": "Very High Utilization:2",
+    "From FST Hours": 1456,
+    "To FST Hours": 3120,
+    "B": 1.125,
+    "M": 0.000600962
+  },
+  {
+    "Model Name": "Very High Utilization",
+    "Index": 3,
+    "ID": "Very High Utilization:3",
+    "From FST Hours": 3120,
+    "To FST Hours": 4867.2,
+    "B": 1.214285714,
+    "M": 0.000572344
+  },
+  {
+    "Model Name": "Very High Utilization",
+    "Index": 4,
+    "ID": "Very High Utilization:4",
+    "From FST Hours": 4867.2,
+    "To FST Hours": 9984,
+    "B": 1.146341463,
+    "M": 0.000586304
+  },
+  {
+    "Model Name": "Very High Utilization",
+    "Index": 5,
+    "ID": "Very High Utilization:5",
+    "From FST Hours": 9984,
+    "To FST Hours": 1000000,
+    "B": 1.352941176,
+    "M": 0.000565611
+  },
+  {
+    "Model Name": "Flat 80% Utilization",
+    "Index": 1,
+    "ID": "Flat 80% Utilization:1",
+    "From FST Hours": 0,
+    "To FST Hours": 1000000,
+    "B": 1,
+    "M": 0.000600962
+  }
+]
