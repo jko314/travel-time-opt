@@ -10,6 +10,6 @@ public class ServiceAreaUtilTest {
     public void setFSTTimeToCountModel() {
         PIECEWISELINEAR_TYPE udtFSTTimeToCount = new PIECEWISELINEAR_TYPE();
         ServiceAreaUtil.setFSTTimeToCountModel(udtFSTTimeToCount, "Flat 80% Utilization");
-        assertEquals(udtFSTTimeToCount.getLngItemCount(), 1);
+        assertEquals(udtFSTTimeToCount.getUdtItems().length, 1);
     }
 }

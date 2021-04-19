@@ -424,7 +424,8 @@ public class ServiceAreaModelService {
 
         for (String code : serviceAreaModel.getAirportMap().keySet()) {
             double travelDistance = possibleSolution.getAirportData().get(code).getTravelDistance();
-            SERVICEAREADATA_TYPE data = possibleSolution.getServiceAreaData().get(code);
+            String serviceCode = possibleSolution.getAirportData().get(code).getServiceAreaCode();
+            SERVICEAREADATA_TYPE data = possibleSolution.getServiceAreaData().get(serviceCode);
             if (data == null) {
                 continue;
             }
@@ -483,7 +484,7 @@ public class ServiceAreaModelService {
 
     private final double computePiecewiseLinear(double dblX, PIECEWISELINEAR_TYPE udtPiecewiseLinear) {
         int index;
-        for (index = 0; (index <= (udtPiecewiseLinear.getLngItemCount() - 1)); index++) {
+        for (index = 0; (index <= (udtPiecewiseLinear.getUdtItems().length - 1)); index++) {
             if (udtPiecewiseLinear.getUdtItems()[index].getFromValue() <= dblX
                     && dblX < udtPiecewiseLinear.getUdtItems()[index].getToValue()) {
                 return (udtPiecewiseLinear.getUdtItems()[index].getB()
@@ -502,10 +503,12 @@ public class ServiceAreaModelService {
         double[] dblAirportDistances;
         double dblDistance;
 
-        String serviceAreaCode = udtSolution.getServiceAreaData().keySet().iterator().next();
+        Iterator<String> iterator = udtSolution.getServiceAreaData().keySet().iterator();
+        String serviceAreaCode = iterator.next();
         for (String airportCode : udtServiceAreaModel.getAirportMap().keySet()) {
 //            udtSolution.getAirportData().get(airportCode).lngServiceAreaIndex = 0;
             AIRPORTSERVICEAREADATA_TYPE airportData = new AIRPORTSERVICEAREADATA_TYPE();
+            airportData.setServiceAreaCode(serviceAreaCode);
             if (airportCode.equals(serviceAreaCode)) {
                 airportData.setTravelDistance(0);
             } else {
@@ -515,19 +518,8 @@ public class ServiceAreaModelService {
 
         }
 
-        boolean skip = true;
-        for (String code : udtSolution.getServiceAreaData().keySet()) {
-            if (skip) {
-                skip = false;
-                continue;
-            }
-            try {
-                if (udtServiceAreaModel.getAirportMap().keySet() != null) {
-                    skip = false;
-                }
-            }catch (NullPointerException e) {
-                e.printStackTrace();
-            }
+        while (iterator.hasNext()) {
+            String code = iterator.next();
             for (String airportCode : udtServiceAreaModel.getAirportMap().keySet()) {
                 double dist = airportCode.equals(code) ?
                         0 : udtServiceAreaModel.getAirportDistances().get(airportCode).get(code);
@@ -765,29 +757,32 @@ public class ServiceAreaModelService {
         }
 
 //        String[] keysR = (String[]) udtResult.getServiceAreaData().keySet().toArray();
-        int size1 = udtSolution1.getServiceAreaData().size();
-        for (int i = i1; i < size1 - 1; i++) {
-            if (udtResult.getServiceAreaData().size() == udtServiceAreaModel.getServiceAreaCount_Max()) {
-                break;
+        try {
+            int size1 = udtSolution1.getServiceAreaData().size();
+            for (int i = i1; i < keys1.length - 1; i++) {
+                if (udtResult.getServiceAreaData().size() == udtServiceAreaModel.getServiceAreaCount_Max()) {
+                    break;
+                }
+                if (Math.random() < 0.5) {
+                    if (udtSolution1.getServiceAreaData().get(keys1[i]) == null)
+                        continue;
+                    udtResult.getServiceAreaData().put(keys1[i], udtSolution1.getServiceAreaData().get(keys1[i]));
+                }
             }
-            if (Math.random() < 0.5) {
-                if (udtSolution1.getServiceAreaData().get(keys1[i]) == null)
-                    continue;
-                udtResult.getServiceAreaData().put(keys1[i], udtSolution1.getServiceAreaData().get(keys1[i]));
+            int size2 = udtSolution2.getServiceAreaData().size();
+            for (int i = i2; i < keys2.length - 1; i++) {
+                if (udtResult.getServiceAreaData().size() == udtServiceAreaModel.getServiceAreaCount_Max()) {
+                    break;
+                }
+                if (Math.random() < 0.5) {
+                    if (udtSolution2.getServiceAreaData().get(keys2[i]) == null)
+                        continue;
+                    udtResult.getServiceAreaData().put(keys2[i], udtSolution2.getServiceAreaData().get(keys2[i]));
+                }
             }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
-        int size2 = udtSolution2.getServiceAreaData().size();
-        for (int i = i2; i < size2 - 1; i++) {
-            if (udtResult.getServiceAreaData().size() == udtServiceAreaModel.getServiceAreaCount_Max()) {
-                break;
-            }
-            if (Math.random() < 0.5) {
-                if (udtSolution2.getServiceAreaData().get(keys2[i]) == null)
-                    continue;
-                udtResult.getServiceAreaData().put(keys2[i], udtSolution2.getServiceAreaData().get(keys2[i]));
-            }
-        }
-
         udtResult.setResultsAreValid(false);
     }
 

@@ -64,9 +64,7 @@ public class ServiceAreaUtil {
             List<PIECEWISELINEARITEM_TYPE> fstList =
                     Arrays.asList(mapper.readValue(file, PIECEWISELINEARITEM_TYPE[].class));
 
-            udtFSTTimeToCount.setLngItemCount(
-                    fstList.stream().filter(item -> strModelName.equals(item.getModelName())).count());
-            udtFSTTimeToCount.setUdtItems((PIECEWISELINEARITEM_TYPE[]) fstList.toArray());
+            udtFSTTimeToCount.setUdtItems(fstList.toArray(new PIECEWISELINEARITEM_TYPE[fstList.size()]));
             fstList.forEach(System.out::println);
         } catch (IOException ioe) {
             System.out.println(ioe);
